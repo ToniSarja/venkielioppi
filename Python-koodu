@@ -1,11 +1,28 @@
+sanakirja = {0:{'kysymys':'mikä on ','vastaus':'tämä on','vinkki':'virhe ' },
+            1:{'kysymys':'mikä on2 ','vastaus':'tämä on2','vinkki':'virhe2 '},
+            2:{'kysymys':'mikä on3','vastaus':'tämä on3','vinkki':'virhe3 '}
+}
 
-sanakirja = {'kysymys':{'vastaa kysymykseen'},'vastaus':{'vastaus kysymykseen'},'vinkki':'huomaa virhe'}
+temp = list(sanakirja)
+test_key = 'mikä on'
+test_key2 = 'virhe'
 
-vastaus = input(sanakirja['kysymys'])
-if vastaus in sanakirja['vastaus']:
-    print('Oikein')
-else:
-    print(sanakirja['vinkki'])
+for key in sanakirja:
+    vastaus = input(sanakirja[key]['kysymys']) 
+    if vastaus == sanakirja[key]['vastaus']:
+        print('Oikein')
+        try:
+             res = temp[temp.index(test_key) + 1]
+        except (ValueError, IndexError):
+            res = None
+    else:
+        vinkki = input(sanakirja[key]['vinkki'])
+        if vinkki == sanakirja[key]['vastaus']:
+            print('Oikein!')
+            try:
+             res = temp[temp.index(test_key2) + 1]
+            except (ValueError, IndexError):
+                res = None
 
 with open("vastaukset.txt", "a") as file:
             for item in vastaus:
