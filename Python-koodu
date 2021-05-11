@@ -1,29 +1,35 @@
-sanakirja = {0:{'kysymys':'mikä on ','vastaus':'tämä on','vinkki':'virhe ' },
-            1:{'kysymys':'mikä on2 ','vastaus':'tämä on2','vinkki':'virhe2 '},
-            2:{'kysymys':'mikä on3','vastaus':'tämä on3','vinkki':'virhe3 '}
+sanakirja = {0:{'kysymys':'mikä on\n','vastaus':'tämä on','vinkki':'virhe\n','vinkki2':'taas virhe\n',},
+            1:{'kysymys':'mikä on2\n','vastaus':'tämä on2','vinkki':'virhe2\n','vinkki2':'taas virhe\n'},
+            2:{'kysymys':'mikä on3\n','vastaus':'tämä on3','vinkki':'virhe3\n','vinkki2':'taas virhe\n'}
 }
 
 temp = list(sanakirja)
 test_key = 'mikä on'
 test_key2 = 'virhe'
-
+score = 0
 for key in sanakirja:
-    vastaus = input(sanakirja[key]['kysymys']) 
-    if vastaus == sanakirja[key]['vastaus']:
+    vastaus = input(sanakirja[key]['kysymys'])
+    if vastaus.lower() == sanakirja[key]['vastaus'].lower():
         print('Oikein')
+        score = score + 1 
         try:
-             res = temp[temp.index(test_key) + 1]
+             res = temp[temp.index(test_key) + 1]  
         except (ValueError, IndexError):
             res = None
     else:
         vinkki = input(sanakirja[key]['vinkki'])
-        if vinkki == sanakirja[key]['vastaus']:
+        if vinkki.lower() == sanakirja[key]['vastaus'].lower():
             print('Oikein!')
+            score = score + 1 
             try:
-             res = temp[temp.index(test_key2) + 1]
+                res = temp[temp.index(test_key2) + 1]
             except (ValueError, IndexError):
                 res = None
+        else:
+            vinkki2 = input(sanakirja[key]['vinkki2'])
+            if vinkki2.lower() == sanakirja[key]['vastaus'].lower():
+                print('Oikein!')
+            else:
+                print('Oikea vastaus on\n' + sanakirja[key]['vastaus'])
 
-with open("vastaukset.txt", "a") as file:
-            for item in vastaus:
-                file.writelines(item)
+print('Sait ' + str(score) + ' oikein')
