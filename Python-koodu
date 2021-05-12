@@ -49,6 +49,15 @@ for key in sanakirja:
                 res = None
         else:
             print(input('Yritä uudestaan\n'))
-    
+            if vastaus.lower() == sanakirja[key]['vastaus'].lower():
+                print('Oikein!')
+                score = score + 1 
+                try:
+                    res = temp[temp.index(test_key) + 1]  
+                except (ValueError, IndexError):
+                    res = None
+            else:
+                print('Oikea vastaus on\n' + sanakirja[key]['vastaus'])
 
+    
 print('Sait ' + str(score) + ' oikein')
