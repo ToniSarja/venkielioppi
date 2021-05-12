@@ -1,5 +1,5 @@
-sanakirja = {0:{'kysymys':'mikä on\n','vastaus':'tämä on','vinkki':'virhe\n','vinkki2':'taas virhe\n',},
-            1:{'kysymys':'mikä on2\n','vastaus':'tämä on2','vinkki':'virhe2\n','vinkki2':'taas virhe\n'},
+sanakirja = {0:{'kysymys':'я + читать (prees.) + книга (akk.)\n','vastaus':'я читаю книгу','virhe':'я читаю книга','virhe2':'я читать книга','vinkki':'Huomaa akkusatiivi\n','vinkki2':'Taivuta verbi ensimmäisessä persoonassa ja substantiivi akkusatiivissa\n',},
+            1:{'kysymys':'дать (imp) + я (dat) + книга (akk)\n','vastaus':'дай мне книгу','vinkki':'Huomaa datiivi ja akkusatiivi\n','vinkki2':'taas virhe\n'},
             2:{'kysymys':'mikä on3\n','vastaus':'tämä on3','vinkki':'virhe3\n','vinkki2':'taas virhe\n'}
 }
 
@@ -16,20 +16,39 @@ for key in sanakirja:
              res = temp[temp.index(test_key) + 1]  
         except (ValueError, IndexError):
             res = None
-    else:
-        vinkki = input(sanakirja[key]['vinkki'])
-        if vinkki.lower() == sanakirja[key]['vastaus'].lower():
-            print('Oikein!')
+    elif vastaus.lower() == sanakirja[key]['virhe'].lower():
+        print(input(sanakirja[key]['vinkki']))
+        if vastaus.lower() == sanakirja[key]['vastaus'].lower():
+            print('Oikein')
             score = score + 1 
             try:
-                res = temp[temp.index(test_key2) + 1]
+                res = temp[temp.index(test_key) + 1]  
             except (ValueError, IndexError):
                 res = None
         else:
-            vinkki2 = input(sanakirja[key]['vinkki2'])
-            if vinkki2.lower() == sanakirja[key]['vastaus'].lower():
-                print('Oikein!')
+            print('Oikea vastaus on\n' + sanakirja[key]['vastaus'])
+    elif vastaus.lower() == sanakirja[key]['virhe2'].lower():
+            print(input(sanakirja[key]['vinkki2']))
+            if vastaus.lower() == sanakirja[key]['vastaus'].lower():
+                print('Oikein')
+                score = score + 1 
+                try:
+                    res = temp[temp.index(test_key) + 1]  
+                except (ValueError, IndexError):
+                    res = None
             else:
                 print('Oikea vastaus on\n' + sanakirja[key]['vastaus'])
+    elif vastaus.lower() != sanakirja[key]['vastaus'].lower():
+        print(input('Yritä uudestaan\n'))
+        if vastaus.lower() == sanakirja[key]['vastaus'].lower():
+            print('Oikein')
+            score = score + 1 
+            try:
+                res = temp[temp.index(test_key) + 1]  
+            except (ValueError, IndexError):
+                res = None
+        else:
+            print(input('Yritä uudestaan\n'))
+    
 
 print('Sait ' + str(score) + ' oikein')
