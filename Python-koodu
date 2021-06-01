@@ -1,63 +1,112 @@
-sanakirja = {0:{'kysymys':'я + читать (prees.) + книга (akk.)\n','vastaus':'я читаю книгу','virhe':'я читаю книга','virhe2':'я читать книга','vinkki':'Huomaa akkusatiivi\n','vinkki2':'Taivuta verbi ensimmäisessä persoonassa ja substantiivi akkusatiivissa\n',},
-            1:{'kysymys':'дать (imp) + я (dat) + книга (akk)\n','vastaus':'дай мне книгу','vinkki':'Huomaa datiivi ja akkusatiivi\n','vinkki2':'taas virhe\n'},
-            2:{'kysymys':'mikä on3\n','vastaus':'tämä on3','vinkki':'virhe3\n','vinkki2':'taas virhe\n'}
-}
+def liikeverbit():
+    sanakirja = {0:{'kysymys':'Я вчера a) шёл b) ходил в кино ','oikea':'b','vinkki':'Minä KÄVIN elokuvissa. Kahteen suuntaan'},
+    1:{'kysymys':'Она сейчас a) идёт b) ходит в библиотеку ','oikea':'a','vinkki':'hän MENEE kirjastoon. Yhteen suuntaan'},
+    2:{'kysymys':'a) Иди b) Ходи сюда! ','oikea':'a','vinkki':'TULE tänne. Yhteen suuntaan'},
+    3:{'kysymys':'После лекции он долго a) шёл b) ходил по парку ','oikea':'b','vinkki':'hän käveli pitkään PUISTOSSA. Moneen suuntaan'},
+    4:{'kysymys':'Мы a) едем b) ездим в Петербург сейчас ','oikea':'a','vinkki':'Me MENEMME Pietariin. Yhteen suuntaan'},
+    5:{'kysymys':'Я a) езжу b) еду часто в командировках ','oikea':'a','vinkki':'MATKUSTAN usein työmatkoilla. Moneen suuntaan'},
+    6:{'kysymys':'Куда b) ехала a) ездила она на каникулы? ','oikea':'b','vinkki':'Missä hän KÄVI lomilla? Moneen suuntaan'},
+    7:{'kysymys':'Прошлым летом я a) ездил b) ехал в Турцию ','oikea':'a','vinkki':'KÄVIN Turkissa. Moneen suuntaan'},
+    8:{'kysymys':'Весна. Птицы a) летят b) летают с юга ','oikea':'a','vinkki':'Linnut lentävät ETELÄSTÄ. Yhteen suuntaan'},
+    9:{'kysymys':'Вертолет a) летит b)  летает над городом ','oikea':'b','vinkki':'Helikopteri LENTELEE kaupungin yllä. Moneen suuntaan'},
+    10:{'kysymys':'Мы a) летели b) летали в Испанию в прощлом году ','oikea':'b','vinkki':'KÄVIMME Espanjassa. Moneen suuntaan'},
+    11:{'kysymys':'Самолёт a) летит b) летает в другую страну ','oikea':'a','vinkki':'Lentokone lentää TOISEEN MAAHAN. Yhteen suuntaan'},
+    12:{'kysymys':'После встречи я a) ходил b) шел по городу','oikea':'a','vinkki':'kävelin KAUPUNGILLA. Moneen suuntaan'},
+    13:{'kysymys':'Он  a) идёт b) ходит  уже в школу','oikea':'b','vinkki':'KÄY koulua. Säännöllinen toiminta'},
+    14:{'kysymys':'Как ты a) ездишь b) едешь на работу?','oikea':'a','vinkki':'Millä KÄYT töissä. Säännöllinen toiminta'},
+    15:{'kysymys':'Он научился a) идти b) ходить, когда ему было год','oikea':'b','vinkki':'Oppi KÄVELEMÄÄN. Kyky'},
+    16:{'kysymys':'Дети a) бегают b) бежат во дворе','oikea':'a','vinkki':'Juoksevat PIHALLA. Moneen suuntaan'},
+    17:{'kysymys':'Автобус a) возит b) везёт пассажиров по городу','oikea':'a','vinkki':'Linja-auto kuljettaa matkustajia PITKIN kaupunkia. Moneen suuntaan'},
+    18:{'kysymys':'Такси a) водит b) везёт человека до вокзала','oikea':'b','vinkki':'Taksi vie JUNA-ASEMALLE. Yhteen suuntaan'},
+    19:{'kysymys':'Куда ты a) носишь b) несёшь телевизор?','oikea':'b','vinkki':'MIHIN kannat televisiota? Yhteen suuntaan'},
+    20:{'kysymys':'Ты умеешь a) вести b) водить машину?','oikea':'b','vinkki':'Taidosta kyse'},
+    21:{'kysymys':'Ты всегда a) носишь  b) несёщь очки?','oikea':'a','vinkki':'Säännöllisestä käytöstä kyse'},
+    22:{'kysymys':'Утки a) плавают b) плывут в озере','oikea':'a','vinkki':'Moneen suuntaan'},
+    23:{'kysymys':'Я никогда не научился a) плыть b) плавать','oikea':'b','vinkki':'Uimataidosta kyse'},
+    24:{'kysymys':'лодка a) плывёт b) плавает до берега','oikea':'a','vinkki':'Yhteen suuntaan'}
+    }
 
-temp = list(sanakirja)
-test_key = 'mikä on'
-test_key2 = 'virhe'
-score = 0
-for key in sanakirja:
-    vastaus = input(sanakirja[key]['kysymys'])
-    if vastaus.lower() == sanakirja[key]['vastaus'].lower():
-        print('Oikein')
-        score = score + 1 
-        try:
-             res = temp[temp.index(test_key) + 1]  
-        except (ValueError, IndexError):
-            res = None
-    elif vastaus.lower() == sanakirja[key]['virhe'].lower():
-        print(input(sanakirja[key]['vinkki']))
-        if vastaus.lower() == sanakirja[key]['vastaus'].lower():
+    temp = list(sanakirja)
+    test_key = 'Я вчера a) шёл b) ходил в кино'
+    test_key2 = 'Minä KÄVIN elokuvissa'
+    score = 0
+    print('Valitse oikea vaihtoehto. Onko toiminta yksi- vai monisuuntaista?')
+    for key in sanakirja:
+        vastaus = input(sanakirja[key]['kysymys'])
+        if vastaus.lower() == sanakirja[key]['oikea'].lower():
             print('Oikein')
             score = score + 1 
             try:
                 res = temp[temp.index(test_key) + 1]  
             except (ValueError, IndexError):
                 res = None
-        else:
-            print('Oikea vastaus on\n' + sanakirja[key]['vastaus'])
-    elif vastaus.lower() == sanakirja[key]['virhe2'].lower():
-            print(input(sanakirja[key]['vinkki2']))
-            if vastaus.lower() == sanakirja[key]['vastaus'].lower():
-                print('Oikein')
-                score = score + 1 
-                try:
-                    res = temp[temp.index(test_key) + 1]  
-                except (ValueError, IndexError):
-                    res = None
-            else:
-                print('Oikea vastaus on\n' + sanakirja[key]['vastaus'])
-    elif vastaus.lower() != sanakirja[key]['vastaus'].lower():
-        print(input('Yritä uudestaan\n'))
-        if vastaus.lower() == sanakirja[key]['vastaus'].lower():
+            else: 
+                if vastaus.lower() != sanakirja[key]['oikea'].lower():
+                    print(sanakirja[key]['vinkki'])
+                    try:
+                        res = temp[temp.index(test_key) + 1]  
+                    except (ValueError, IndexError):
+                        res = None
+
+        print('Sait ' + str(score) + ' oikein')
+
+def aakkoset():
+    sanakirja = {
+    1:{'kysymys':'Галина','oikea':'galina'},
+    2:{'kysymys':'Друг','oikea':'drug'},
+    3:{'kysymys':'Екатерина','oikea':'jekaterina'},
+    4:{'kysymys':'Ёжик','oikea':'jožik'},
+    5:{'kysymys':'Жук','oikea':'žuk'},
+    6:{'kysymys':'Зонтик','oikea':'zontik'},
+    7:{'kysymys':'Иван','oikea':'ivan'},
+    8:{'kysymys':'Азбука','oikea':'azbuka'},
+    9:{'kysymys':'Банан','oikea':'banan'},
+    10:{'kysymys':'Валентин','oikea':'valentin'},
+    11:{'kysymys':'Ты','oikea':'ty'},
+    12:{'kysymys':'Эхо','oikea':'eho'},
+    13:{'kysymys':'Юрий','oikea':'juri'},
+    14:{'kysymys':'Майдан','oikea':'majdan'},
+    15:{'kysymys':'Федор','oikea':'fjodor'},
+    16:{'kysymys':'Лампа','oikea':'lampa'},
+    17:{'kysymys':'Мама','oikea':'mama'},
+    18:{'kysymys':'Нина','oikea':'nina'},
+    19:{'kysymys':'Oмск','oikea':'omsk'},
+    20:{'kysymys':'Павел','oikea':'pavel'},
+    21:{'kysymys':'Кирилл','oikea':'kirill'},
+    22:{'kysymys':'Роман','oikea':'roman'},
+    23:{'kysymys':'Саша','oikea':'saša'},
+    24:{'kysymys':'Tомск','oikea':'tomsk'},
+    25:{'kysymys':'Украйна','oikea':'ukraina'},
+    26:{'kysymys':'Хорошо','oikea':'horošo'},
+    27:{'kysymys':'Цирк','oikea':'tsirk'},
+    28:{'kysymys':'Чехов','oikea':'tšehov'},
+    29:{'kysymys':'Шашлик','oikea':'šašlik'},
+    30:{'kysymys':'Хрущёв','oikea':'hruštšov'},
+    31:{'kysymys':'Ягуар','oikea':'jaguar'}
+    }
+
+    temp = list(sanakirja)
+    test_key = 'Галина'
+    score = 0
+    print('Translitteroi nämä sanat latinalaisille aakkosille. Voit kopioida erikoismerkit yltä (ctrl + c ja ctrl + v)')
+    for key in sanakirja:
+        print(sanakirja[key]['kysymys'])
+        vastaus = input()
+        if vastaus.lower() == sanakirja[key]['oikea'].lower():
             print('Oikein')
             score = score + 1 
             try:
                 res = temp[temp.index(test_key) + 1]  
             except (ValueError, IndexError):
                 res = None
-        else:
-            print(input('Yritä uudestaan\n'))
-            if vastaus.lower() == sanakirja[key]['vastaus'].lower():
-                print('Oikein!')
-                score = score + 1 
-                try:
-                    res = temp[temp.index(test_key) + 1]  
-                except (ValueError, IndexError):
-                    res = None
-            else:
-                print('Oikea vastaus on\n' + sanakirja[key]['vastaus'])
+        else: 
+            if vastaus.lower() != sanakirja[key]['oikea'].lower():
+                print('Virhe')
 
-    
-print('Sait ' + str(score) + ' oikein')
+    print('Sait ' + str(score) + ' oikein')
+
+osio = input('Valitse osio liikeverbit, aakkoset ')
+if osio == 'liikeverbit':
+    liikeverbit()
+elif osio == 'aakkoset':
+    aakkoset()
