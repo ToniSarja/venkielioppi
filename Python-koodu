@@ -39,16 +39,21 @@ def liikeverbit():
             try:
                 res = temp[temp.index(test_key) + 1]  
             except (ValueError, IndexError):
+                res = None 
+        elif vastaus.lower() != sanakirja[key]['oikea'].lower():
+            print(sanakirja[key]['vinkki'])
+            try:
+                res = temp[temp.index(test_key) + 1]  
+            except (ValueError, IndexError):
                 res = None
-            else: 
-                if vastaus.lower() != sanakirja[key]['oikea'].lower():
-                    print(sanakirja[key]['vinkki'])
-                    try:
-                        res = temp[temp.index(test_key) + 1]  
-                    except (ValueError, IndexError):
-                        res = None
 
-        print('Sait ' + str(score) + ' oikein')
+    print('Sait ' + str(score) + ' oikein')
+    osio = input('Valitse osio liikeverbit, aakkoset ')
+    if osio == 'liikeverbit':
+        liikeverbit()
+    elif osio == 'aakkoset':
+        aakkoset()
+
 
 def aakkoset():
     sanakirja = {
@@ -99,11 +104,21 @@ def aakkoset():
                 res = temp[temp.index(test_key) + 1]  
             except (ValueError, IndexError):
                 res = None
-        else: 
-            if vastaus.lower() != sanakirja[key]['oikea'].lower():
-                print('Virhe')
+        elif vastaus.lower() != sanakirja[key]['oikea'].lower():
+            print(sanakirja[key]['vinkki'])
+            try:
+                res = temp[temp.index(test_key) + 1]  
+            except (ValueError, IndexError):
+                res = None
+
 
     print('Sait ' + str(score) + ' oikein')
+    osio = input('Valitse osio liikeverbit, aakkoset ')
+    if osio == 'liikeverbit':
+        liikeverbit()
+    elif osio == 'aakkoset':
+        aakkoset()
+
 
 osio = input('Valitse osio liikeverbit, aakkoset ')
 if osio == 'liikeverbit':
