@@ -3,68 +3,66 @@ import random
 def sub():
    
     sanakirja = {
-    0:{'kysymys':'ОГОНЬ yksikön instrumentaalissa','oikea':'ОГНЁМ','vinkki':'Huomaa väistyvä O-vokaaali ja pehmeä vartalo'},
-    1:{'kysymys':'МАШИНА yksikön akkusatiivissa','oikea':'машину','vinkki':'Huomaa feminiinin akkusatiivi'},
-    2:{'kysymys':'КУСОК yksikön genetiivissä','oikea':'КУСКА','vinkki':'Huomaa väistyvä O-vokaali'},
-    3:{'kysymys':'МУЗЕЙ yksikön datiivissa','oikea':'музею','vinkki':'Huomaa pehmeä Й-pääte'},
-    4:{'kysymys':'ВРЕМЯ yksikön instrumentaalissa','oikea':'временем','vinkki':'Huomaa neutrin МЯ-pääte'},
-    5:{'kysymys':'БАБОЧКА monikon genetiivissä','oikea':'БАБОЧЕК','vinkki':'Ч jälkeen lisätään Е lausumisen helpottamiseksi. Feminiinin monikossa nollapääte'},
-    6:{'kysymys':'ЖИТЕЛЬ yksikön genetiivissä','oikea':'ЖИТЕЛЯ','vinkki':'Huomaa pehmeä pääte'},
-    7:{'kysymys':'КРЕСЛО monikon genetiivissä','oikea':'кресел','vinkki':'Nollapääte eli O-päätteinen neutri käyttäytyy samalla tavoin kuin A-päätteinen feminiini monikon genetiivissä. C jälkeen lisätään E ääntämisen helpottamiseksi'},
-    8:{'kysymys':'НОЖ monikon genetiivissä','oikea':'НОЖЕЙ','vinkki':'Suhuässään päättyvät maskuliinit ja feminiinit saavat ЕЙ-päätteen'},
-    9:{'kysymys':'ТЕАТР yksikön akkusaatiivissa','oikea':'ТЕАТР','vinkki':'Elottomat maskuliiniset substantiivit ovat akkusatiivissa nominatiivin kaltaisia'},
-    10:{'kysymys':'МУЖЧИНА yksikön akkusatiivissa','oikea':'МУЖЧИНУ','vinkki':'A-päätteiset maskuliinit käyttäytyvät feminiinin kaltaisesti'},
-    11:{'kysymys':'СТРАНА yksikön instrumentaalissa','oikea':'страной','vinkki':'A-päätteinen feminiini saa ОЙ-päätteen'},
-    12:{'kysymys':'ДЕТИ monikon datiivissa','oikea':'детям','vinkki':'Huomaa pehmeä И-pääte'},
-    13:{'kysymys':'ГРАЖДАНИН monikon datiivissa','oikea':'ГРАЖДАНАМ','vinkki':'Taipuu maskuliinin datiivin mukaisesti. Monikon taivutusvartalo ГРАЖДАН'},
-    14:{'kysymys':'ГОРОД monikossa, nominatiivissa','oikea':'ГОРОДА','vinkki':'ГОРОД saa monikossa A-päätteen'},
-    15:{'kysymys':'РЕБЁНОК','oikea':'РЕБЁНКУ','vinkki':'Huomaa väistyvä O-vokaali'},
-    16:{'kysymys':'ЧЕЛОВЕК yksikön instrumentaalissa','oikea':'ЧЕЛОВЕКОМ','vinkki':'Taipuu normaalisti maskuliinin instrumentaalin mukaisesti'},
-    17:{'kysymys':'ЛЮДИ monikon instrumentaalissa','oikea':'ЛЮДЬМИ','vinkki':'Huomaa epäsäännöllinen taivutus'},
-    18:{'kysymys':'ХОЗЯИН monikon nominatiivissa','oikea':'ХОЗЯЕВА','vinkki':'A-päätteinen monikko, taivusvartalo muuttuu'},
-    19:{'kysymys':'ЗДАНИЕ monikon nominatiivissa','oikea':'ЗДАНИЯ','vinkki':'E-päätteinen neutri saa monikossa Я-päätteen'},
-    20:{'kysymys':'БРАТ monikon genetiivissä','oikea':'БРАТЬЕВ','vinkki':'БРАТ saa monikossa pehmeän päätteen, vrt. nomikko БРАТЬЯ'},
-    21:{'kysymys':'СЛОВАРЬ monikon genetiivissä','oikea':'СЛОВАРЕЙ','vinkki':'Pehmeään merkkiin Ь päättyvä maskuliini saa monikossa ЕЙ-päätteen'},
-    22:{'kysymys':'ТЕТРАДЬ yksikön instrumentaalissa','oikea':'ТЕТРАДЬЮ','vinkki':'Kolmannessa deklinaatiossa feminiini saa ЬЮ-päätteen'},
-    23:{'kysymys':'НЕДЕЛЯ yksikön akkusatiivissa','oikea':'НЕДЕЛЮ','vinkki':'Pehmeävartaloinen feminiini saa akkusatiivissa Ю-päätteen'},
-    24:{'kysymys':'ВРАЧ yksikön datiivissa','oikea':'ВРАЧУ','vinkki':'Säännönmukaisesti taipuva maskuliini'},
-    25:{'kysymys':'ДРУГ monikon datiivissa','oikea':'ДРУЗЬЯМ','vinkki':'Taivutusvartalo ДРУЗЬЯ-monikosta'},
-    26:{'kysymys':'ОТЕЦ yksikön instrumentaalissa','oikea':'ОТЦОМ','vinkki':'Huomaa väistyvä O-vokaali'},
-    27:{'kysymys':'ДЕВУШКА monikon genetiivissä','oikea':'ДЕВУШЕК','vinkki':'Ш jälkeen lisätään Е lausumisen helpottamiseksi'},
-    28:{'kysymys':'МАТЬ yksikön instrumentaalissa','oikea':'МАТЕРЬЮ','vinkki':'Taivutusvartalo muuttuu МАТЕР-. Kolmannessa deklinaatiossa feminiini saa ЬЮ-päätteen'},
-    29:{'kysymys':'ЖЕНЩИНА yksikön akkusatiivissa','oikea':'ЖЕНЩИНУ','vinkki':'Taipuu toisen deklinaation mukaisesti'},
-    30:{'kysymys':'КНИГА monikon genetiivissä','oikea':'КНИГ','vinkki':'Toisen deklinaation mukaisesti nollapääte eli A putoaa pois'},
-    31:{'kysymys':'МАЛЬЧИК monikon genetiivissä','oikea':'МАЛЬЧИКОВ','vinkki':'Taipuu ensimmäisen deklinaation mukaisesti'},
-    32:{'kysymys':'ВЕЧЕР yksikön instrumentaalissa','oikea':'ВЕЧЕРОМ','vinkki':'Taipuu ensimmäisen deklinaation mukaisesti'},
-    33:{'kysymys':'ДЕНЬ yksikön instrumentaalissa','oikea':'ДНЁМ','vinkki':'Pehmeä taivutusvartalo, huomaa väistyvä E'},
-    34:{'kysymys':'МОРЕ yksikön genetiivissä','oikea':'МОРЯ','vinkki':'Е-päätteinen pehmeävartaloinen neutri saa Я-päätteen'},
-    35:{'kysymys':'УТРО yksikön instrumentaalissa','oikea':'УТРОМ','vinkki':'Taipuu ensimmäisen deklinaation mukaisesti'},
-    36:{'kysymys':'ПОЛКА monikon genetiivissä','oikea':'ПОЛОК','vinkki':'Toisen deklinaation mukaan nollapääte. K jälkeen lisätään ääntämistä helpottava O-vokaali'},
+    0:{'kysymys':'ОГОНЬ yksikön instrumentaalissa ','oikea':'ОГНЁМ','vinkki':'Huomaa väistyvä O-vokaaali ja pehmeä vartalo'},
+    1:{'kysymys':'МАШИНА yksikön akkusatiivissa ','oikea':'машину','vinkki':'Huomaa feminiinin akkusatiivi'},
+    2:{'kysymys':'КУСОК yksikön genetiivissä ','oikea':'КУСКА','vinkki':'Huomaa väistyvä O-vokaali'},
+    3:{'kysymys':'МУЗЕЙ yksikön datiivissa ','oikea':'музею','vinkki':'Huomaa pehmeä Й-pääte'},
+    4:{'kysymys':'ВРЕМЯ yksikön instrumentaalissa ','oikea':'временем','vinkki':'Huomaa neutrin МЯ-pääte'},
+    5:{'kysymys':'БАБОЧКА monikon genetiivissä ','oikea':'БАБОЧЕК','vinkki':'Ч jälkeen lisätään Е lausumisen helpottamiseksi. Feminiinin monikossa nollapääte'},
+    6:{'kysymys':'ЖИТЕЛЬ yksikön genetiivissä ','oikea':'ЖИТЕЛЯ','vinkki':'Huomaa pehmeä pääte'},
+    7:{'kysymys':'КРЕСЛО monikon genetiivissä ','oikea':'кресел','vinkki':'Nollapääte eli O-päätteinen neutri käyttäytyy samalla tavoin kuin A-päätteinen feminiini monikon genetiivissä. C jälkeen lisätään E ääntämisen helpottamiseksi'},
+    8:{'kysymys':'НОЖ monikon genetiivissä ','oikea':'НОЖЕЙ','vinkki':'Suhuässään päättyvät maskuliinit ja feminiinit saavat ЕЙ-päätteen'},
+    9:{'kysymys':'ТЕАТР yksikön akkusaatiivissa ','oikea':'ТЕАТР','vinkki':'Elottomat maskuliiniset substantiivit ovat akkusatiivissa nominatiivin kaltaisia'},
+    10:{'kysymys':'МУЖЧИНА yksikön akkusatiivissa ','oikea':'МУЖЧИНУ','vinkki':'A-päätteiset maskuliinit käyttäytyvät feminiinin kaltaisesti'},
+    11:{'kysymys':'СТРАНА yksikön instrumentaalissa ','oikea':'страной','vinkki':'A-päätteinen feminiini saa ОЙ-päätteen'},
+    12:{'kysymys':'ДЕТИ monikon datiivissa ','oikea':'детям','vinkki':'Huomaa pehmeä И-pääte'},
+    13:{'kysymys':'ГРАЖДАНИН monikon datiivissa ','oikea':'ГРАЖДАНАМ','vinkki':'Taipuu maskuliinin datiivin mukaisesti. Monikon taivutusvartalo ГРАЖДАН'},
+    14:{'kysymys':'ГОРОД monikossa, nominatiivissa ','oikea':'ГОРОДА','vinkki':'ГОРОД saa monikossa A-päätteen'},
+    15:{'kysymys':'РЕБЁНОК yksikön datiivissa ','oikea':'РЕБЁНКУ','vinkki':'Huomaa väistyvä O-vokaali'},
+    16:{'kysymys':'ЧЕЛОВЕК yksikön instrumentaalissa ','oikea':'ЧЕЛОВЕКОМ','vinkki':'Taipuu normaalisti maskuliinin instrumentaalin mukaisesti'},
+    17:{'kysymys':'ЛЮДИ monikon instrumentaalissa ','oikea':'ЛЮДЬМИ','vinkki':'Huomaa epäsäännöllinen taivutus'},
+    18:{'kysymys':'ХОЗЯИН monikon nominatiivissa ','oikea':'ХОЗЯЕВА','vinkki':'A-päätteinen monikko, taivusvartalo muuttuu'},
+    19:{'kysymys':'ЗДАНИЕ monikon nominatiivissa ','oikea':'ЗДАНИЯ','vinkki':'E-päätteinen neutri saa monikossa Я-päätteen'},
+    20:{'kysymys':'БРАТ monikon genetiivissä ','oikea':'БРАТЬЕВ','vinkki':'БРАТ saa monikossa pehmeän päätteen, vrt. nomikko БРАТЬЯ'},
+    21:{'kysymys':'СЛОВАРЬ monikon genetiivissä ','oikea':'СЛОВАРЕЙ','vinkki':'Pehmeään merkkiin Ь päättyvä maskuliini saa monikossa ЕЙ-päätteen'},
+    22:{'kysymys':'ТЕТРАДЬ yksikön instrumentaalissa ','oikea':'ТЕТРАДЬЮ','vinkki':'Kolmannessa deklinaatiossa feminiini saa ЬЮ-päätteen'},
+    23:{'kysymys':'НЕДЕЛЯ yksikön akkusatiivissa ','oikea':'НЕДЕЛЮ','vinkki':'Pehmeävartaloinen feminiini saa akkusatiivissa Ю-päätteen'},
+    24:{'kysymys':'ВРАЧ yksikön datiivissa ','oikea':'ВРАЧУ','vinkki':'Säännönmukaisesti taipuva maskuliini'},
+    25:{'kysymys':'ДРУГ monikon datiivissa ','oikea':'ДРУЗЬЯМ','vinkki':'Taivutusvartalo ДРУЗЬЯ-monikosta'},
+    26:{'kysymys':'ОТЕЦ yksikön instrumentaalissa ','oikea':'ОТЦОМ','vinkki':'Huomaa väistyvä O-vokaali'},
+    27:{'kysymys':'ДЕВУШКА monikon genetiivissä ','oikea':'ДЕВУШЕК','vinkki':'Ш jälkeen lisätään Е lausumisen helpottamiseksi'},
+    28:{'kysymys':'МАТЬ yksikön instrumentaalissa ','oikea':'МАТЕРЬЮ','vinkki':'Taivutusvartalo muuttuu МАТЕР-. Kolmannessa deklinaatiossa feminiini saa ЬЮ-päätteen'},
+    29:{'kysymys':'ЖЕНЩИНА yksikön akkusatiivissa ','oikea':'ЖЕНЩИНУ','vinkki':'Taipuu toisen deklinaation mukaisesti'},
+    30:{'kysymys':'КНИГА monikon genetiivissä ','oikea':'КНИГ','vinkki':'Toisen deklinaation mukaisesti nollapääte eli A putoaa pois'},
+    31:{'kysymys':'МАЛЬЧИК monikon genetiivissä ','oikea':'МАЛЬЧИКОВ','vinkki':'Taipuu ensimmäisen deklinaation mukaisesti'},
+    32:{'kysymys':'ВЕЧЕР yksikön instrumentaalissa ','oikea':'ВЕЧЕРОМ','vinkki':'Taipuu ensimmäisen deklinaation mukaisesti'},
+    33:{'kysymys':'ДЕНЬ yksikön instrumentaalissa ','oikea':'ДНЁМ','vinkki':'Pehmeä taivutusvartalo, huomaa väistyvä E'},
+    34:{'kysymys':'МОРЕ yksikön genetiivissä ','oikea':'МОРЯ','vinkki':'Е-päätteinen pehmeävartaloinen neutri saa Я-päätteen'},
+    35:{'kysymys':'УТРО yksikön instrumentaalissa ','oikea':'УТРОМ','vinkki':'Taipuu ensimmäisen deklinaation mukaisesti'},
+    36:{'kysymys':'ПОЛКА monikon genetiivissä ','oikea':'ПОЛОК','vinkki':'Toisen deklinaation mukaan nollapääte. K jälkeen lisätään ääntämistä helpottava O-vokaali'},
 
     }
 
     temp = list(sanakirja)
-    test_key = 'Я вчера a) шёл b) ходил в кино'
-    test_key2 = 'Minä KÄVIN elokuvissa'
+    test_key = 'ОГОНЬ yksikön instrumentaalissa'
     score = 0
     random.shuffle(sanakirja)
     print('Taivuta substantiivi annetussa sijamuodossa')
     for key in sanakirja:
-        vastaus = input(sanakirja[key]['kysymys'])
-        if vastaus.lower() == sanakirja[key]['oikea'].lower():
-            print('Oikein')
-            score = score + 1 
-            try:
-                res = temp[temp.index(test_key) + 1]  
-            except (ValueError, IndexError):
-                res = None 
-        elif vastaus.lower() != sanakirja[key]['oikea'].lower():
-            print(sanakirja[key]['vinkki'])
-            try:
-                res = temp[temp.index(test_key) + 1]  
-            except (ValueError, IndexError):
-                res = None
-
+        miettii = True
+        while miettii:
+            vastaus = input(sanakirja[key]['kysymys'])
+            if vastaus.lower() == sanakirja[key]['oikea'].lower():
+                print('Oikein')
+                score = score + 1 
+                try:
+                    res = temp[temp.index(test_key) + 1]  
+                except (ValueError, IndexError):
+                    res = None
+                miettii = False
+            elif vastaus.lower() != sanakirja[key]['oikea'].lower():
+                    print(sanakirja[key]['vinkki'])
+          
 
     print('Sait ' + str(score) + ' oikein')
 
@@ -76,6 +74,72 @@ def sub():
     elif osio == 'substantiivit':
         sub()
 
+def adj():
+
+    sanakirja = {
+    0:{'kysymys':'ЯРКИЙ ОГОНЬ yksikön instrumentaalissa ','oikea':'ЯРКИМ ОГНЁМ','vinkki':'Huomaa väistyvä O-vokaaali ja pehmeä vartalo'},
+    1:{'kysymys':'НОВАЯ МАШИНА yksikön akkusatiivissa ','oikea':'новую машину','vinkki':'Huomaa feminiinin akkusatiivi'},
+    2:{'kysymys':'МАЛЕНЬКИЙ КУСОК yksikön genetiivissä ','oikea':'МАЛЕНЬКОГО КУСКА','vinkki':'Huomaa väistyvä O-vokaali'},
+    3:{'kysymys':'ХУДОЖЕСТВЕННЫЙ МУЗЕЙ yksikön datiivissa ','oikea':'художественному музею','vinkki':'Huomaa pehmeä Й-pääte'},
+    4:{'kysymys':'ЗОЛОТОЕ ВРЕМЯ yksikön instrumentaalissa ','oikea':'золотым временем','vinkki':'Huomaa neutrin МЯ-pääte'},
+    5:{'kysymys':'КРАСИВАЯ БАБОЧКА monikon genetiivissä ','oikea':'КРАСИВЫХ БАБОЧЕК','vinkki':'Ч jälkeen lisätään Е lausumisen helpottamiseksi. Feminiinin monikossa nollapääte'},
+    6:{'kysymys':'ДАВНЫЙ ЖИТЕЛЬ yksikön genetiivissä ','oikea':'ДАВНОГО ЖИТЕЛЯ','vinkki':'Huomaa substantiivin pehmeä pääte'},
+    7:{'kysymys':'УДОБНОЕ КРЕСЛО monikon genetiivissä ','oikea':'удобных кресел','vinkki':'Nollapääte eli O-päätteinen neutri käyttäytyy samalla tavoin kuin A-päätteinen feminiini monikon genetiivissä. C jälkeen lisätään E ääntämisen helpottamiseksi'},
+    8:{'kysymys':'ОСТРЫЙ НОЖ monikon genetiivissä ','oikea':'ОСТРЫХ НОЖЕЙ','vinkki':'Suhuässään päättyvät maskuliinit ja feminiinit saavat ЕЙ-päätteen'},
+    9:{'kysymys':'ДРАМАТИЧЕСКИЙ ТЕАТР yksikön akkusaatiivissa ','oikea':'ТЕАТР','vinkki':'Elottomat maskuliiniset substantiivit ovat akkusatiivissa nominatiivin kaltaisia'},
+    10:{'kysymys':'КРАСИВЫЙ МУЖЧИНА yksikön akkusatiivissa ','oikea':'КРАСИВОГО МУЖЧИНУ','vinkki':'A-päätteiset maskuliinit käyttäytyvät feminiinin kaltaisesti. Adjektiivit kuitenkin taipuvat maskuliinin mukaan'},
+    11:{'kysymys':'РОДНАЯ СТРАНА yksikön instrumentaalissa ','oikea':'родной страной','vinkki':'A-päätteinen feminiini ja adjektiivi saavat molemmat ОЙ-päätteen'},
+    12:{'kysymys':'МАЛЕНЬКИЕ ДЕТИ monikon datiivissa ','oikea':'маленьким детям','vinkki':'Huomaa pehmeä И-pääte'},
+    13:{'kysymys':'РОССИЙСКИЙ ГРАЖДАНИН monikon datiivissa ','oikea':'РОССИЙСКИМ ГРАЖДАНАМ','vinkki':'Taipuu maskuliinin datiivin mukaisesti. Monikon taivutusvartalo ГРАЖДАН'},
+    14:{'kysymys':'БОЛЬШОЙ ГОРОД monikon nominatiivissa ','oikea':'БОЛЬШИЕ ГОРОДА','vinkki':'ГОРОД saa monikossa A-päätteen'},
+    15:{'kysymys':'ПЕРВЫЙ РЕБЁНОК yksikön datiivissa ','oikea':'ПЕРВОМУ РЕБЁНКУ','vinkki':'Huomaa väistyvä O-vokaali'},
+    16:{'kysymys':'ЧЕЛОВЕК yksikön instrumentaalissa ','oikea':'ЧЕЛОВЕКОМ','vinkki':'Taipuu normaalisti maskuliinin instrumentaalin mukaisesti'},
+    17:{'kysymys':'СЧАСТЛИВЫЕ ЛЮДИ monikon instrumentaalissa ','oikea':'СЧАСТЛИВЫМИ ЛЮДЬМИ','vinkki':'Huomaa epäsäännöllinen taivutus'},
+    18:{'kysymys':'ЛУЧШИЙ ХОЗЯИН monikon nominatiivissa ','oikea':'ЛУЧШИЕ ХОЗЯЕВА','vinkki':'A-päätteinen monikko, taivusvartalo muuttuu'},
+    19:{'kysymys':'ВЫСОКОЕ ЗДАНИЕ monikon nominatiivissa ','oikea':'ВЫСОКИЕ ЗДАНИЯ','vinkki':'E-päätteinen neutri saa monikossa Я-päätteen'},
+    20:{'kysymys':'CТАРШИЙ БРАТ monikon genetiivissä ','oikea':'СТАРШИХ БРАТЬЕВ','vinkki':'БРАТ saa monikossa pehmeän päätteen, vrt. nomikko БРАТЬЯ'},
+    21:{'kysymys':'БОЛЬШОЙ ТОЛЬКОВЫЙ СЛОВАРЬ monikon genetiivissä ','oikea':'БОЛЬШИХ ТОЛЬКОВЫХ СЛОВАРЕЙ','vinkki':'Pehmeään merkkiin Ь päättyvä maskuliini saa monikossa ЕЙ-päätteen'},
+    22:{'kysymys':'КРАСНАЯ ТЕТРАДЬ yksikön instrumentaalissa ','oikea':'КРАСНОЙ ТЕТРАДЬЮ','vinkki':'Kolmannessa deklinaatiossa feminiini saa ЬЮ-päätteen'},
+    23:{'kysymys':'ПОСЛЕДНЯЯ НЕДЕЛЯ yksikön akkusatiivissa ','oikea':'ПОСЛЕДНЮЮ НЕДЕЛЮ','vinkki':'Pehmeävartaloinen feminiini saa akkusatiivissa Ю-päätteen. Pehmeävartaloisen adjektiivin pääte on ЮЮ'},
+    24:{'kysymys':'ГЛАВНЫЙ ВРАЧ yksikön datiivissa ','oikea':'ГЛАВНОМУ ВРАЧУ','vinkki':'Säännönmukaisesti taipuva maskuliini'},
+    25:{'kysymys':'БЛИЗКИЙ ДРУГ monikon datiivissa ','oikea':'БЛИЗКИМ ДРУЗЬЯМ','vinkki':'Taivutusvartalo ДРУЗЬЯ-monikosta'},
+    26:{'kysymys':'СТАРЫЙ ОТЕЦ yksikön instrumentaalissa ','oikea':'СТАРЫМ ОТЦОМ','vinkki':'Huomaa väistyvä O-vokaali'},
+    27:{'kysymys':'МОЛОДАЯ ДЕВУШКА monikon genetiivissä ','oikea':'МОЛОДЫХ ДЕВУШЕК','vinkki':'Ш jälkeen lisätään Е lausumisen helpottamiseksi'},
+    28:{'kysymys':'ДОРОГАЯ МАТЬ yksikön instrumentaalissa ','oikea':'ДОРОГОЙ МАТЕРЬЮ','vinkki':'Taivutusvartalo muuttuu МАТЕР-. Kolmannessa deklinaatiossa feminiini saa ЬЮ-päätteen'},
+    29:{'kysymys':'КРАСИВАЯ ЖЕНЩИНА yksikön akkusatiivissa ','oikea':'КРАСИВУЮ ЖЕНЩИНУ','vinkki':'Taipuu toisen deklinaation mukaisesti'},
+    30:{'kysymys':'ТЯЖЁЛАЯ КНИГА monikon genetiivissä ','oikea':'ТЯЖЁЛЫХ КНИГ','vinkki':'Toisen deklinaation mukaisesti nollapääte eli A putoaa pois'},
+    31:{'kysymys':'ХОРОШИЙ МАЛЬЧИК monikon genetiivissä ','oikea':'ХОРОШИХ МАЛЬЧИКОВ','vinkki':'Taipuu ensimmäisen deklinaation mukaisesti'},
+    32:{'kysymys':'ПОЗДНИЙ ВЕЧЕР yksikön instrumentaalissa ','oikea':'ПОЗДНИМ ВЕЧЕРОМ','vinkki':'Taipuu ensimmäisen deklinaation mukaisesti'},
+    33:{'kysymys':'РАБОЧИЙ ДЕНЬ yksikön instrumentaalissa ','oikea':'РАБОЧИМ ДНЁМ','vinkki':'Pehmeä taivutusvartalo, huomaa väistyvä E'},
+    34:{'kysymys':'БУРНОЕ МОРЕ yksikön genetiivissä ','oikea':'БУРНОГО МОРЯ','vinkki':'Е-päätteinen pehmeävartaloinen neutri saa Я-päätteen'},
+    35:{'kysymys':'РАННЕЕ УТРО yksikön instrumentaalissa ','oikea':'РАННИМ УТРОМ','vinkki':'Taipuu ensimmäisen deklinaation mukaisesti'},
+    36:{'kysymys':'КНИЖНАЯ ПОЛКА monikon genetiivissä ','oikea':'КНИЖНЫХ ПОЛОК','vinkki':'Toisen deklinaation mukaan nollapääte. K jälkeen lisätään ääntämistä helpottava O-vokaali'},
+
+    }
+    temp = list(sanakirja)
+    test_key = 'ЯРКИЙ ОГОНЬ'
+    score = 0
+    random.shuffle(sanakirja)
+    print('Taivuta adjektiivi ja substantiivi annetussa sijamuodossa')
+    for key in sanakirja:
+        miettii = True
+        while miettii:
+            print(sanakirja[key]['kysymys'])
+            vastaus = input()
+            if vastaus.lower() == sanakirja[key]['oikea'].lower():
+                print('Oikein')
+                score = score + 1 
+                try:
+                    res = temp[temp.index(test_key) + 1]  
+                except (ValueError, IndexError):
+                    res = None
+                miettii = False
+            elif vastaus.lower() != sanakirja[key]['oikea'].lower():
+                print(sanakirja[key]['vinkki'])
+
+
+
+    print('Sait ' + str(score) + ' oikein')
 
 def liikeverbit():
     sanakirja = {0:{'kysymys':'Я вчера a) шёл b) ходил в кино ','oikea':'b','vinkki':'Minä KÄVIN elokuvissa. Kahteen suuntaan'},
@@ -122,10 +186,7 @@ def liikeverbit():
                 res = None 
         elif vastaus.lower() != sanakirja[key]['oikea'].lower():
             print(sanakirja[key]['vinkki'])
-            try:
-                res = temp[temp.index(test_key) + 1]  
-            except (ValueError, IndexError):
-                res = None
+       
 
     print('Sait ' + str(score) + ' oikein')
     osio = input('Valitse osio liikeverbit, aakkoset ')
@@ -178,21 +239,21 @@ def aakkoset():
     random.shuffle(sanakirja)
     print('Translitteroi nämä sanat latinalaisille aakkosille. Voit kopioida erikoismerkit yltä (ctrl + c ja ctrl + v)')
     for key in sanakirja:
-        print(sanakirja[key]['kysymys'])
-        vastaus = input()
-        if vastaus.lower() == sanakirja[key]['oikea'].lower():
-            print('Oikein')
-            score = score + 1 
-            try:
-                res = temp[temp.index(test_key) + 1]  
-            except (ValueError, IndexError):
-                res = None
-        elif vastaus.lower() != sanakirja[key]['oikea'].lower():
-            print(sanakirja[key]['vinkki'])
-            try:
-                res = temp[temp.index(test_key) + 1]  
-            except (ValueError, IndexError):
-                res = None
+        miettii = True
+        while miettii:
+            print(sanakirja[key]['kysymys'])
+            vastaus = input()
+            if vastaus.lower() == sanakirja[key]['oikea'].lower():
+                print('Oikein')
+                score = score + 1 
+                try:
+                    res = temp[temp.index(test_key) + 1]  
+                except (ValueError, IndexError):
+                    res = None
+                miettii = False
+            elif vastaus.lower() != sanakirja[key]['oikea'].lower():
+                print(sanakirja[key]['vinkki'])
+         
 
 
     print('Sait ' + str(score) + ' oikein')
@@ -205,10 +266,12 @@ def aakkoset():
         sub()
 
 
-osio = input('Valitse osio substantiivit, liikeverbit, aakkoset ')
-if osio == 'liikeverbit':
+osio = input('Valitse osio\n 1. substantiivit\n 2. liikeverbit\n 3. aakkoset\n 4. adjektiivit')
+if osio == '2':
     liikeverbit()
-elif osio == 'aakkoset':
+elif osio == '3':
     aakkoset()
-elif osio == 'substantiivit':
+elif osio == '1':
     sub()
+elif osio == '4':
+    adj()
